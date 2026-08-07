@@ -2,8 +2,8 @@
 
 
 def add(x,y):
-    sum = x+y
-    return sum
+    return  x+y
+    
 
 def minus(x,y):
     res = x-y
@@ -35,5 +35,5 @@ elif choice == 4:
     res =div(x,y)
 else:
     print("choice invalid exiting .. . . .")
-    
+    exit()
 print(res)
