@@ -11,7 +11,7 @@ typedef struct List{
 }List, *Node;
 
 void printList(Node x);
-
+void Palindrome(Node *x);
 
 void main(){
     Node List = NULL;
@@ -31,12 +31,22 @@ void main(){
             trav->next = Temp;
         }
     }
+    printf("\n--- List ---\n{ ");
+
     printList(List);
+
+    printf("\n---Reversing List ---\n{ ");
+
+    Palindrome(&List);
+
+
+    printList(List);
+
 }
 
 
 void printList(Node x){
-    printf("\n--- List ---\n{ ");
+    
     for(;x!=NULL;x = x->next){
         printf("%d ",x->data);
     }
@@ -45,23 +55,13 @@ void printList(Node x){
 
 void Palindrome(Node *x){
 
-    Node Trav = (*x),Head = NULL,Tail;
+    Node Trav, Prev = NULL, Temp;
 
-
-    for(;Trav->next != NULL ; Trav = Trav->next){
-        //Travels to the end 
-        if(Head == NULL){
-            Head = Trav; //head is now pointing to the last of the List
-        }else{
-            //traversal again
-            Node Travhead = Head;
-            for(;Travhead->next != NULL;Travhead = Travhead->next){
-                //insert last 
-            }
-            Travhead->next = Trav;
-        }
-
+    for(Trav = (*x); Trav != NULL; Trav = Temp){
+        Temp = Trav->next;
+        Trav->next = Prev;
+        Prev = Trav;
     }
-
+    (*x) = Prev;
 
 }
