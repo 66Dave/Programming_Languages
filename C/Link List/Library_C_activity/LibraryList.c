@@ -33,39 +33,8 @@ typedef struct List{
 
 //hash function for bookid
 int hashId(Listptr Library, Listptr Temp){
-    //convert author fname to asci and book name to asci and multiply add 1 if already occupied
-    //get author fname to be asci
-    int total, i, totalfname =0, totalbookname = 0;
-    
-    for (i =0; i < strlen(Temp->bk.Author.Fname);i++){
-        totalfname = totalfname + Temp->bk.Author.Fname[i];
-    }
-
-    for (i =0; i < strlen(Temp->bk.bookName);i++){
-        totalbookname = totalbookname + Temp->bk.bookName[i];
-    }
-    total = (totalfname*totalbookname);
-
-    //check if bookid already existed
-    Listptr Trav;
-    int collision = 1;
-
-    while(collision == 1){
-
-        collision = 0;
-
-        for(Trav = Library;Trav != NULL ; Trav = Trav->next){
-            //check statement
-           
-            if(Trav->bookId == total){
-                total ++;
-                collision =1;
-                break;
-            }
-        }
-    }
-   
-    return total;
+    //hash for id
+    //circular hash  watch for collision and stuff
 }
 
 void PrintList(Listptr Library){
@@ -128,67 +97,65 @@ void initialize(Listptr *Library){
 
 
 void AddFirst(Listptr *Library){
-    //already populated
-    //insert first
-    Listptr Temp = malloc(sizeof(List));
-    if(Temp == NULL){
-        printf("Malloc Failed");
-        return;
-    }else{
-        populate(&Temp, (*Library));
-    }
     
-        Temp->next = (*Library);
-        (*Library) = Temp; 
+
+
+
+
+
+
+
+
+
 }
 
 
 void AddLast(Listptr *Library){
-    //List already checked in main that its not == NULL
-    Listptr Temp = malloc(sizeof(List));
-    populate(&Temp, (*Library));
-    Temp->next = NULL;
-    Listptr Trav = (*Library);
-    for(;Trav->next != NULL;Trav = Trav->next){
-        //traverse till end or till Trav->next == NULL
-    }
-    Trav->next = Temp;
     
+
+
+
+
+
+
+
 
 }
 
 void DeleteFirst(Listptr *Library){
 
-    //List already has at least one variable
-    if((*Library)->next == NULL){//only has one variable
-        free(*Library);
-        (*Library) = NULL;//DELETES EVERYTHING
 
-    }else{//Library has multiple nodes
-        Listptr Temp = ((*Library)->next);
-        free(*Library);
-        (*Library) = Temp;
 
-    }
+
+
+
+
+
 
 }
 
 
 void DeleteLast (Listptr *Library){
-    //main already checked that List is not empty
-    Listptr Trav = (*Library) ;
-    if((*Library)->next == NULL){//only one variable
-        free(*Library);
-        (*Library) = NULL;
+    
 
-    }else{//multiple var
-        for(;Trav->next->next != NULL;Trav = Trav->next){
-        //traverse till end or till Trav->next == NULL
-        }
-        free(Trav->next);
-        Trav ->next = NULL;
 
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 void main(){
