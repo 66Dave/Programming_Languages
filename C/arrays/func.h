@@ -1,21 +1,25 @@
 
 
 
-void InsertSort(int arr[],int num, int *size){
-    //O(log(n))
+void findPos(int arr[],int num, int *size){
 
-    //find Pos
-    int pos = 0,left,right, mid= (*size)/2;
+    int pos , left = 0, right =  (*size)-1;
 
-    
-    //half the array to find pos 
-    //lets find mid
-    
-    
-    //already find pos
-    
-    printf("position is: %d", pos);
-
+    while(left <= right){
+        //find if we go right or left
+        int mid = (left + right ) / 2;
+        if(num == arr[mid]){
+            pos = arr[mid];
+            break;
+        }
+        else if(num > arr[mid]){
+            left = mid +1;
+        }else{
+            right = mid-1;
+        }
+    }
+    pos = left;
+    printf("\nposition is: %d", pos);
 
 }
 

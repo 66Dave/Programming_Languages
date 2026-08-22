@@ -11,7 +11,7 @@ void main(){
     int size = 6;
     int num = 25;
     print(arr, size);
-    InsertSort(arr, 22, &size);
+    findPos(arr, 2, &size);
 
 }
 
