@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 
@@ -33,3 +34,5 @@ void print(int arr[], int size){
     }
     printf(" }");
 }
+=======
+>>>>>>> bfc76269436eac219c92585f5291fe933e480fc9
